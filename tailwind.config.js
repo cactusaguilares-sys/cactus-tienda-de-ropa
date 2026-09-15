@@ -48,6 +48,9 @@ export default {
       backdropBlur: {
         xs: '2px',
       },
+      transitionTimingFunction: {
+        'luxury': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
     },
   },
   plugins: [],

@@ -67,7 +67,7 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
       if (onOpenInfoModal) {
         onOpenInfoModal(modalType);
       }
-    }, 200);
+    }, 250);
   };
 
   const collectionLinks = [
@@ -110,14 +110,14 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
       <div 
         onClick={onClose}
         aria-label="Cerrar menú"
-        className={`fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-300 ease-in-out cursor-pointer ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer ${
           isOpen ? 'opacity-100' : 'opacity-0'
         }`}
       />
 
       {/* Drawer panel: Efecto de deslizamiento (Slide-in / Slide-out) */}
       <div 
-        className={`relative w-full sm:max-w-md bg-white h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+        className={`relative w-full sm:max-w-md bg-white h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
