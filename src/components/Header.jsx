@@ -6,24 +6,15 @@ export default function Header({ onOpenDrawer, onOpenSearch, cartCount = 0 }) {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Left: Hamburger menu & Desktop Links */}
-        <div className="flex items-center space-x-2 sm:space-x-6 w-1/3">
+        {/* Left: Únicamente ícono de menú hamburguesa minimalista */}
+        <div className="flex items-center justify-start w-1/3">
           <button
             onClick={onOpenDrawer}
             aria-label="Abrir menú"
-            className="w-11 h-11 min-w-[44px] min-h-[44px] -ml-2 text-stone-800 hover:text-cactus-olive transition-colors group flex items-center justify-center gap-2 touch-manipulation"
+            className="w-11 h-11 min-w-[44px] min-h-[44px] -ml-2 text-stone-800 hover:text-cactus-olive transition-colors group flex items-center justify-center touch-manipulation"
           >
-            <Menu size={24} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-            <span className="hidden md:inline-block text-xs uppercase tracking-widest font-medium text-stone-600 group-hover:text-cactus-olive">
-              Menú
-            </span>
+            <Menu size={24} strokeWidth={1.5} className="group-hover:scale-105 transition-transform" />
           </button>
-
-          <nav className="hidden xl:flex items-center space-x-6 text-[13px] tracking-widest uppercase font-medium text-stone-600">
-            <a href="#coleccion" className="hover:text-cactus-olive transition-colors py-2">Colección</a>
-            <a href="#destacados" className="hover:text-cactus-olive transition-colors py-2">Destacados</a>
-            <a href="#kids" className="text-cactus-olive font-semibold hover:opacity-80 transition-opacity py-2">Cactus Kids</a>
-          </nav>
         </div>
 
         {/* Center: Logo CACTUS Boutique */}
@@ -45,7 +36,7 @@ export default function Header({ onOpenDrawer, onOpenSearch, cartCount = 0 }) {
             aria-label="Buscar productos"
             className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-stone-800 hover:text-cactus-olive transition-colors group touch-manipulation"
           >
-            <Search size={22} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+            <Search size={24} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
           </button>
 
           <a
@@ -53,8 +44,8 @@ export default function Header({ onOpenDrawer, onOpenSearch, cartCount = 0 }) {
             aria-label="Bolsa de compras"
             className="w-11 h-11 min-w-[44px] min-h-[44px] -mr-2 flex items-center justify-center text-stone-800 hover:text-cactus-olive transition-colors relative group touch-manipulation"
           >
-            <ShoppingBag size={22} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-            <span className="absolute top-1.5 right-1.5 bg-cactus-olive text-white text-[10px] font-semibold h-4 w-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+            <ShoppingBag size={24} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
+            <span className="absolute top-1 right-1 bg-cactus-olive text-white text-[10px] font-semibold h-4 w-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
               {cartCount > 0 ? cartCount : '0'}
             </span>
           </a>
