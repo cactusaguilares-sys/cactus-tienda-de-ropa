@@ -50,6 +50,7 @@ export default {
       },
       transitionTimingFunction: {
         'luxury': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'cinematic': 'cubic-bezier(0.25, 1, 0.5, 1)',
       },
     },
   },

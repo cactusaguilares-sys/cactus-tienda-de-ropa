@@ -67,7 +67,7 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
       if (onOpenInfoModal) {
         onOpenInfoModal(modalType);
       }
-    }, 250);
+    }, 350);
   };
 
   const collectionLinks = [
@@ -106,18 +106,18 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
       aria-hidden={!isOpen}
       inert={!isOpen ? '' : undefined}
     >
-      {/* Fondo con desvanecimiento (Backdrop fade) */}
+      {/* Fondo con desvanecimiento (Backdrop fade) - 1s cinematográfico */}
       <div 
         onClick={onClose}
         aria-label="Cerrar menú"
-        className={`fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer ${
           isOpen ? 'opacity-100' : 'opacity-0'
         }`}
       />
 
-      {/* Drawer panel: Efecto de deslizamiento (Slide-in / Slide-out) */}
+      {/* Drawer panel: Efecto de deslizamiento (Slide-in / Slide-out) - 1s cinematográfico */}
       <div 
-        className={`relative w-full sm:max-w-md bg-white h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative w-full sm:max-w-md bg-white h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto transform transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
