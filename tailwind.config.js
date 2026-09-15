@@ -45,6 +45,9 @@ export default {
           '100%': { transform: 'translateX(-50%)' },
         },
       },
+      backdropBlur: {
+        xs: '2px',
+      },
     },
   },
   plugins: [],

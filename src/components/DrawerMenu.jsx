@@ -38,8 +38,6 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
   const handleNavigate = (e, targetId) => {
     if (e) e.preventDefault();
     onClose();
@@ -69,7 +67,7 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
       if (onOpenInfoModal) {
         onOpenInfoModal(modalType);
       }
-    }, 180);
+    }, 200);
   };
 
   const collectionLinks = [
@@ -101,15 +99,28 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex">
-      {/* Backdrop */}
+    <div 
+      className={`fixed inset-0 z-50 flex ${
+        isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+      }`}
+      aria-hidden={!isOpen}
+      inert={!isOpen ? '' : undefined}
+    >
+      {/* Fondo con desvanecimiento (Backdrop fade) */}
       <div 
-        className="fixed inset-0 bg-stone-950/70 backdrop-blur-sm transition-opacity animate-fade-in"
         onClick={onClose}
+        aria-label="Cerrar menú"
+        className={`fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity duration-300 ease-in-out cursor-pointer ${
+          isOpen ? 'opacity-100' : 'opacity-0'
+        }`}
       />
 
-      {/* Drawer panel: Full width en mobile (w-full), max-w-md en desktop */}
-      <div className="relative w-full sm:max-w-md bg-white h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto transform transition-transform animate-fade-in">
+      {/* Drawer panel: Efecto de deslizamiento (Slide-in / Slide-out) */}
+      <div 
+        className={`relative w-full sm:max-w-md bg-white h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
         
         {/* Drawer Header */}
         <div className="p-5 sm:p-6 border-b border-stone-200 flex items-center justify-between bg-white sticky top-0 z-20">
@@ -118,13 +129,13 @@ export default function DrawerMenu({ isOpen, onClose, onOpenInfoModal }) {
             <span className="block text-[10px] tracking-[0.4em] uppercase text-stone-400 font-sans mt-0.5">Boutique</span>
           </div>
 
-          {/* Botón de Cerrar (X) táctil (48x48px) */}
+          {/* Botón de Cerrar (X) táctil y accesible */}
           <button
             onClick={onClose}
             aria-label="Cerrar menú"
-            className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-800 flex items-center justify-center transition-colors touch-manipulation shadow-sm"
+            className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-800 flex items-center justify-center transition-colors touch-manipulation shadow-sm cursor-pointer"
           >
-            <X size={24} strokeWidth={2.2} />
+            <X size={24} strokeWidth={1.5} />
           </button>
         </div>
 
